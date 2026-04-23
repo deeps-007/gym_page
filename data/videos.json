@@ -1,0 +1,168 @@
+{
+  "categories": [
+    {
+      "id": "shoulders",
+      "name": "Shoulder Exercises",
+      "description": "Exercises targeting deltoids and shoulder muscles",
+      "icon": "💪"
+    },
+    {
+      "id": "chest",
+      "name": "Chest Exercises",
+      "description": "Chest and pectoral exercises",
+      "icon": "🔥"
+    },
+    {
+      "id": "back",
+      "name": "Back Exercises",
+      "description": "Back and lat exercises",
+      "icon": "🔙"
+    },
+    {
+      "id": "arms",
+      "name": "Arm Exercises",
+      "description": "Biceps, triceps and forearm exercises",
+      "icon": "💪"
+    },
+    {
+      "id": "legs",
+      "name": "Leg Exercises",
+      "description": "Quadriceps, hamstrings, glutes and calf exercises",
+      "icon": "🦵"
+    },
+    {
+      "id": "core",
+      "name": "Core Exercises",
+      "description": "Abdominal and core stability exercises",
+      "icon": "🎯"
+    },
+    {
+      "id": "form",
+      "name": "Form & Technique",
+      "description": "Proper form guidance and common mistakes to avoid",
+      "icon": "⚠️"
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "title": "Master Your Form & Feel The Burn!",
+      "description": "5 essential movements for proper muscle targeting: Lateral Raises, Triceps Extension, Biceps Curl, Bent Over Row, Triceps Kickback",
+      "url": "https://www.instagram.com/reel/DXdDvKekUhv/",
+      "thumbnail": "https://www.instagram.com/p/DXdDvKekUhv/media/?size=l",
+      "category": "form",
+      "source": "demicstory",
+      "tags": ["form", "technique", "upper body", "weekly plan"]
+    },
+    {
+      "id": "v2",
+      "title": "Single Arm Dumbbell Row Mistakes",
+      "description": "Common mistakes to avoid when performing single arm dumbbell rows",
+      "url": "https://www.instagram.com/reel/DXc6X7aicyP/",
+      "thumbnail": "https://www.instagram.com/p/DXc6X7aicyP/media/?size=l",
+      "category": "form",
+      "source": "demicstory",
+      "tags": ["form", "back", "mistakes", "row"]
+    },
+    {
+      "id": "v3",
+      "title": "Hip Thrusts - Fix Your Foot Position",
+      "description": "Most people do hip thrusts wrong - learn the correct foot position",
+      "url": "https://www.instagram.com/reel/DXcUf7lCJtH/",
+      "thumbnail": "https://www.instagram.com/p/DXcUf7lCJtH/media/?size=l",
+      "category": "form",
+      "source": "demicstory",
+      "tags": ["form", "legs", "hip thrust", "glutes"]
+    },
+    {
+      "id": "v4",
+      "title": "Stop Squatting Wrong",
+      "description": "Your squat form will never be the same after this - proper squat technique",
+      "url": "https://www.instagram.com/reel/DXcGMZoCpy_/",
+      "thumbnail": "https://www.instagram.com/p/DXcGMZoCpy_/media/?size=l",
+      "category": "form",
+      "source": "demicstory",
+      "tags": ["form", "legs", "squat", "technique"]
+    },
+    {
+      "id": "v5",
+      "title": "3 Common Shoulder Mistakes",
+      "description": "Wrong vs Right - 3 Common Shoulder Mistakes Explained",
+      "url": "https://www.instagram.com/reel/DXamS2AFA95/",
+      "thumbnail": "https://www.instagram.com/p/DXamS2AFA95/media/?size=l",
+      "category": "form",
+      "source": "demicstory",
+      "tags": ["form", "shoulders", "mistakes"]
+    },
+    {
+      "id": "v6",
+      "title": "Perfect Your Lunge Form",
+      "description": "Perfect your lunge form with dumbbells - proper technique guide",
+      "url": "https://www.instagram.com/reel/DXW8Uqmj3R0/",
+      "thumbnail": "https://www.instagram.com/p/DXW8Uqmj3R0/media/?size=l",
+      "category": "legs",
+      "source": "demicstory",
+      "tags": ["legs", "lunge", "dumbbells"]
+    },
+    {
+      "id": "v7",
+      "title": "Build Delts on Smith Machine",
+      "description": "Build Front, Side & Rear Delts on the Smith Machine",
+      "url": "https://www.instagram.com/reel/DXW1IoWCeNn/",
+      "thumbnail": "https://www.instagram.com/p/DXW1IoWCeNn/media/?size=l",
+      "category": "shoulders",
+      "source": "demicstory",
+      "tags": ["shoulders", "smith machine", "delt"]
+    },
+    {
+      "id": "v8",
+      "title": "Rear Delt Fly Mistakes",
+      "description": "Rear Delt Fly Mistakes You Must Fix",
+      "url": "https://www.instagram.com/reel/DXVcVpijJcJ/",
+      "thumbnail": "https://www.instagram.com/p/DXVcVpijJcJ/media/?size=l",
+      "category": "form",
+      "source": "demicstory",
+      "tags": ["form", "shoulders", "rear delt", "fly"]
+    },
+    {
+      "id": "v9",
+      "title": "Pull-Up Form Check",
+      "description": "Pull-Up Form Check - Are You Doing Them Correctly?",
+      "url": "https://www.instagram.com/reel/DXVAEOmiTjs/",
+      "thumbnail": "https://www.instagram.com/p/DXVAEOmiTjs/media/?size=l",
+      "category": "form",
+      "source": "demicstory",
+      "tags": ["form", "back", "pull-up", "technique"]
+    },
+    {
+      "id": "v10",
+      "title": "Improve Spinal Alignment",
+      "description": "Improve Spinal Alignment With This Simple Bed Position",
+      "url": "https://www.instagram.com/reel/DXUizlggvfy/",
+      "thumbnail": "https://www.instagram.com/p/DXUizlggvfy/media/?size=l",
+      "category": "core",
+      "source": "appyoucan",
+      "tags": ["spine", "alignment", "mobility"]
+    },
+    {
+      "id": "v11",
+      "title": "Landmine Row Mistakes",
+      "description": "Landmine Row Mistakes You Must Avoid",
+      "url": "https://www.instagram.com/reel/DXTJbIjlW1b/",
+      "thumbnail": "https://www.instagram.com/p/DXTJbIjlW1b/media/?size=l",
+      "category": "form",
+      "source": "appyoucan",
+      "tags": ["form", "back", "landmine", "row"]
+    },
+    {
+      "id": "v12",
+      "title": "Hyperextension Guide",
+      "description": "Hyperextension: Lower Back vs Glutes Explained",
+      "url": "https://www.instagram.com/reel/DXSL2hhFIZL/",
+      "thumbnail": "https://www.instagram.com/p/DXSL2hhFIZL/media/?size=l",
+      "category": "legs",
+      "source": "appyoucan",
+      "tags": ["legs", "hyperextension", "lower back", "glutes"]
+    }
+  ]
+}
