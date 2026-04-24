@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "videos": [
+    {
+      "id": "v6",
+      "title": "Perfect Your Lunge Form",
+      "description": "Perfect your lunge form with dumbbells - proper technique guide",
+      "url": "https://www.instagram.com/reel/DXW8Uqmj3R0/",
+      "thumbnail": "https://www.instagram.com/p/DXW8Uqmj3R0/media/?size=l",
+      "category": "legs",
+      "source": "demicstory",
+      "tags": ["legs", "lunge", "dumbbells"]
+    },
+    {
+      "id": "v12",
+      "title": "Hyperextension Guide",
+      "description": "Hyperextension: Lower Back vs Glutes Explained",
+      "url": "https://www.instagram.com/reel/DXSL2hhFIZL/",
+      "thumbnail": "https://www.instagram.com/p/DXSL2hhFIZL/media/?size=l",
+      "category": "legs",
+      "source": "appyoucan",
+      "tags": ["legs", "hyperextension", "lower back", "glutes"]
+    }
+  ]
+}
