@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Fitness Videos - Exercise Categories</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button type="button" id="clearCacheBtn" class="clear-cache-btn" aria-label="Clear cache and load fresh data from server">🔄 Clear Cache</button>
+        <div class="container">
+            <h1>🏋️ Gym Fitness Videos</h1>
+            <p>Exercise tutorials from Instagram pages</p>
+        </div>
+    </header>
+
+    <nav class="category-nav">
+        <div class="container" id="categoryNav">
+            <!-- Category buttons will be dynamically inserted here -->
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="video-stats">
+            <div class="stat">
+                <span class="stat-number" id="totalVideos">0</span>
+                <span class="stat-label">Videos</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="totalCategories">0</span>
+                <span class="stat-label">Categories</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Sources</span>
+            </div>
+        </section>
+
+        <section class="search-bar">
+            <label for="searchInput" class="visually-hidden">Search videos</label>
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search title, description, or tag…"
+                autocomplete="off"
+                aria-label="Search videos">
+            <div class="tag-filter" id="tagFilter" role="group" aria-label="Filter by tag">
+                <!-- Tag chips will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section class="videos-grid" id="videosGrid" aria-live="polite" aria-busy="false">
+            <!-- Videos will be dynamically inserted here -->
+        </section>
+        <nav class="pagination" id="pagination" aria-label="Pagination">
+            <!-- Pagination controls will be dynamically inserted here -->
+        </nav>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Built with ❤️ for fitness enthusiasts</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="close-modal" aria-label="Close dialog">&times;</button>
+            <h2 id="modalTitle"></h2>
+            <div id="modalContent"></div>
+            <div class="modal-tags" id="modalTags"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

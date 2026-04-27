@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "legs",
+      "name": "Legs Exercises",
+      "description": "Exercises targeting legs",
+      "icon": "🦵"
+    },
+    {
+      "id": "arms",
+      "name": "Arms Exercises",
+      "description": "Exercises targeting arms",
+      "icon": "💪"
+    },
+    {
+      "id": "form",
+      "name": "Form Exercises",
+      "description": "Exercises targeting form",
+      "icon": "🏋️"
+    },
+    {
+      "id": "back",
+      "name": "Back Exercises",
+      "description": "Exercises targeting back",
+      "icon": "🔙"
+    },
+    {
+      "id": "shoulders",
+      "name": "Shoulders Exercises",
+      "description": "Exercises targeting shoulders",
+      "icon": "💪"
+    },
+    {
+      "id": "core",
+      "name": "Core Exercises",
+      "description": "Exercises targeting core",
+      "icon": "🎯"
+    },
+    {
+      "id": "chest",
+      "name": "Chest Exercises",
+      "description": "Exercises targeting chest",
+      "icon": "🔥"
+    }
+  ]
+}
