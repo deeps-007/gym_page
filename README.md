@@ -207,7 +207,31 @@ Key points:
 
 ## 📄 License
 
-Data sourced from Instagram and used for educational purposes. Respect creators' copyrights and Instagram's terms of service.
+The **source code** in this repository (HTML, CSS, JavaScript, and the Python scraper) is released under the [MIT License](LICENSE).
+
+The **video content, captions, and thumbnails** referenced in `data/*.json` are **not** covered by the MIT license. They remain the property of the original Instagram creators. This project only embeds Instagram's official iframe player (videos play from Instagram's servers, not from this repo) and stores public metadata for indexing.
+
+## 🙏 Credits
+
+All exercise videos and content shown on this site are created by — and belong to — the following Instagram fitness creators. Please follow and support them directly:
+
+- [@demicstory](https://www.instagram.com/demicstory/) — Fitness tutorials and form guides
+- [@appyoucan](https://www.instagram.com/appyoucan/) — Workout exercises and training tips
+
+This is a non-commercial fan project intended for educational use. No videos are rehosted or redistributed; this site only links to and embeds the creators' original posts on Instagram.
+
+## 🚫 Takedown / Content Removal
+
+If you are a creator (or authorized representative) and would like your content removed from this catalog:
+
+> **Please [open an issue](../../issues/new) on this repository.** It will be taken down.
+
+You don't need to provide a legal reason — a request from the creator is enough. If you'd prefer not to file a public issue, you can also reach the maintainer privately via the contact details on the GitHub profile.
+
+What "taken down" means here:
+- The relevant entries in `data/*.json` will be deleted.
+- The creator's username will be removed from the scraper's source list (`script/scrape.py`).
+- A new commit and Pages deploy will go out.
 
 ---
 
