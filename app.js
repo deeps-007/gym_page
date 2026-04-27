@@ -15,6 +15,7 @@ let currentVideos = [];              // videos for the active category after tag
 let loadedCategoryVideos = [];       // raw videos for the active category (pre tag/search)
 let currentPage = 1;
 let lastFocusedElement = null;
+const staleCategories = new Set();   // category ids that need a force-refresh this session
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadCatalog();
@@ -24,14 +25,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // --- Catalog (categories metadata) --------------------------------------
 
-async function loadCatalog() {
+async function loadCatalog({ force = false } = {}) {
     try {
-        const resp = await fetch(CATALOG_URL);
+        const resp = await fetch(CATALOG_URL, force ? { cache: 'no-store' } : undefined);
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         catalog = await resp.json();
         writeCatalogCache(catalog);
     } catch (e) {
-        const cached = readCatalogCache();
+        const cached = force ? null : readCatalogCache();
         if (cached) {
             catalog = cached;
             showToast('Offline — using cached category list.', 'info');
@@ -61,17 +62,19 @@ function writeCatalogCache(data) {
 
 // --- Per-category data --------------------------------------------------
 
-async function fetchCategoryFile(categoryId) {
+async function fetchCategoryFile(categoryId, { force = false } = {}) {
     // Try cache first; validate with the catalog's version scheme isn't enough —
     // each category file carries its own version, so the cache is scoped per file.
-    const cached = readCategoryCache(categoryId);
+    const shouldForce = force || staleCategories.has(categoryId);
+    const cached = shouldForce ? null : readCategoryCache(categoryId);
     try {
-        const resp = await fetch(CATEGORY_URL(categoryId));
+        const resp = await fetch(CATEGORY_URL(categoryId), shouldForce ? { cache: 'no-store' } : undefined);
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const data = await resp.json();
         if (!cached || cached.version !== data.version) {
             writeCategoryCache(categoryId, data);
         }
+        staleCategories.delete(categoryId);
         return data.videos || [];
     } catch (e) {
         if (cached) {
@@ -97,6 +100,60 @@ function writeCategoryCache(categoryId, data) {
         localStorage.setItem(CATEGORY_CACHE_PREFIX + categoryId, JSON.stringify(data));
     } catch {
         // Ignore quota errors.
+    }
+}
+
+function clearAllCaches() {
+    try {
+        localStorage.removeItem(CATALOG_CACHE_KEY);
+        const stale = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith(CATEGORY_CACHE_PREFIX)) stale.push(key);
+        }
+        stale.forEach(k => localStorage.removeItem(k));
+    } catch {
+        // best-effort
+    }
+}
+
+async function refreshFromServer() {
+    const btn = document.getElementById('clearCacheBtn');
+    const originalLabel = btn?.textContent;
+    if (btn) {
+        btn.disabled = true;
+        btn.textContent = '⏳ Refreshing…';
+    }
+    try {
+        clearAllCaches();
+        await loadCatalog({ force: true });
+
+        // Mark every known category as stale — first visit to each will force-refetch
+        // (bypassing both localStorage AND the browser HTTP cache). This is what makes
+        // Clear Cache work globally instead of only refreshing the active category.
+        staleCategories.clear();
+        (catalog?.categories || []).forEach(c => staleCategories.add(c.id));
+
+        renderCategoryNav();
+
+        const stillExists = (catalog?.categories || []).some(c => c.id === currentCategory);
+        if (currentCategory && stillExists) {
+            setGridBusy(true);
+            loadedCategoryVideos = await fetchCategoryFile(currentCategory, { force: true });
+            setGridBusy(false);
+            renderTagFilter(collectTags(loadedCategoryVideos));
+            applyFilters(currentPage);
+        } else {
+            currentCategory = null;
+            renderLanding();
+        }
+
+        showToast('Cache cleared — fresh data will load for every category.', 'info');
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.textContent = originalLabel;
+        }
     }
 }
 
@@ -311,7 +368,7 @@ function setGridBusy(busy) {
 
 // --- Event wiring -------------------------------------------------------
 
-async function setupEventListeners() {
+function renderCategoryNav() {
     const nav = document.getElementById('categoryNav');
     nav.innerHTML = '';
     const categories = catalog?.categories || [];
@@ -322,11 +379,9 @@ async function setupEventListeners() {
         btn.className = 'category-btn';
         btn.dataset.category = cat.id;
         btn.textContent = `${cat.icon ? cat.icon + ' ' : ''}${cat.name}`;
-        btn.setAttribute('aria-pressed', 'false');
-        nav.appendChild(btn);
-    });
-
-    nav.querySelectorAll('.category-btn').forEach(btn => {
+        const isActive = cat.id === currentCategory;
+        btn.setAttribute('aria-pressed', String(isActive));
+        if (isActive) btn.classList.add('active');
         btn.addEventListener('click', async () => {
             nav.querySelectorAll('.category-btn').forEach(b => {
                 b.classList.remove('active');
@@ -334,9 +389,19 @@ async function setupEventListeners() {
             });
             btn.classList.add('active');
             btn.setAttribute('aria-pressed', 'true');
-            await selectCategory(btn.dataset.category);
+            await selectCategory(cat.id);
         });
+        nav.appendChild(btn);
     });
+}
+
+async function setupEventListeners() {
+    renderCategoryNav();
+
+    const clearBtn = document.getElementById('clearCacheBtn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => refreshFromServer());
+    }
 
     const searchInput = document.getElementById('searchInput');
     let searchDebounce;
@@ -463,4 +528,6 @@ window.GymVideos = {
     applyFilters,
     renderVideos,
     showToast,
+    refreshFromServer,
+    clearAllCaches,
 };

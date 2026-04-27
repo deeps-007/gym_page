@@ -2,46 +2,46 @@
   "version": 1,
   "categories": [
     {
-      "id": "shoulders",
-      "name": "Shoulder Exercises",
-      "description": "Exercises targeting deltoids and shoulder muscles",
+      "id": "legs",
+      "name": "Legs Exercises",
+      "description": "Exercises targeting legs",
+      "icon": "🦵"
+    },
+    {
+      "id": "arms",
+      "name": "Arms Exercises",
+      "description": "Exercises targeting arms",
       "icon": "💪"
     },
     {
-      "id": "chest",
-      "name": "Chest Exercises",
-      "description": "Chest and pectoral exercises",
-      "icon": "🔥"
+      "id": "form",
+      "name": "Form Exercises",
+      "description": "Exercises targeting form",
+      "icon": "🏋️"
     },
     {
       "id": "back",
       "name": "Back Exercises",
-      "description": "Back and lat exercises",
+      "description": "Exercises targeting back",
       "icon": "🔙"
     },
     {
-      "id": "arms",
-      "name": "Arm Exercises",
-      "description": "Biceps, triceps and forearm exercises",
+      "id": "shoulders",
+      "name": "Shoulders Exercises",
+      "description": "Exercises targeting shoulders",
       "icon": "💪"
-    },
-    {
-      "id": "legs",
-      "name": "Leg Exercises",
-      "description": "Quadriceps, hamstrings, glutes and calf exercises",
-      "icon": "🦵"
     },
     {
       "id": "core",
       "name": "Core Exercises",
-      "description": "Abdominal and core stability exercises",
+      "description": "Exercises targeting core",
       "icon": "🎯"
     },
     {
-      "id": "form",
-      "name": "Form & Technique",
-      "description": "Proper form guidance and common mistakes to avoid",
-      "icon": "⚠️"
+      "id": "chest",
+      "name": "Chest Exercises",
+      "description": "Exercises targeting chest",
+      "icon": "🔥"
     }
   ]
 }
